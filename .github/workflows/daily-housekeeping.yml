@@ -1,0 +1,48 @@
+name: Daily Housekeeping Commit
+
+on:
+  schedule:
+    # Runs at 08:00 UTC every Mon–Sat
+    # → that's 11:00 EAT (your timezone) Mon–Sat
+    - cron: '0 8 * * 1-6'
+
+  workflow_dispatch:  # lets you test it manually from the Actions tab
+
+jobs:
+  housekeeping:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # required so it can push commits
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git user
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Do some housecleaning / learning commit
+        run: |
+          # === Choose ONE style below (or mix them) ===
+
+          # Style A: Append timestamp + motivational message to a log file
+          echo "$(date '+%Y-%m-%d %H:%M UTC') - Still not great at Oracle/JS, but showing up today" >> learning-log.md
+          git add learning-log.md
+
+          # Style B: Update a dummy JS file with comment (changes every day)
+          # echo "// Auto commit $(date '+%Y-%m-%d') - grinding Oracle + JS" >> daily-note.js
+          # git add daily-note.js
+
+          # Style C: Touch an empty file just to force a commit (minimal)
+          # touch .daily-touch
+          # git add .daily-touch
+
+      - name: Commit & push if there are changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            chore: daily housekeeping commit
+            Still learning Oracle + JavaScript – not good yet, but consistent effort.
+          branch: main   # ← change to master if your default branch is master
