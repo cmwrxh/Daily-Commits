@@ -1,0 +1,18 @@
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true   # Ensures credentials for push
+
+      # ... your Generate daily content step here ...
+
+      - name: Debug: Show git status before commit
+        run: git status --short
+
+      - name: Auto-commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            chore(daily): busy-mode auto-commit
+            Still learning — didn't skip today 💪
+          branch: main
+          file_pattern: busy-*.md   # Explicitly target our files
