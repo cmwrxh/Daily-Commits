@@ -1,18 +1,34 @@
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           persist-credentials: true   # Ensures credentials for push
 
-      # ... your Generate daily content step here ...
+      - name: Generate daily content
+        run: |
+          TODAY=$(date '+%Y-%m-%d')
 
-      - name: Debug: Show git status before commit
+          QUOTES=( "Progress beats perfection — showing up today counts." "One small commit > zero. You're doing great, Alenti." "Busy day? Still here. That's the win." "Consistency is quiet — keep stacking days." "Not every day is epic, but every day adds up." "Grinding even when life is full — proud of you." "Small steps in chaos still move mountains." "You're allowed to be busy AND keep the streak." )
+          RANDOM_QUOTE="${QUOTES[$((RANDOM % ${#QUOTES[@]}))]}"
+          echo "$TODAY | $RANDOM_QUOTE" >> busy-motivation.md
+          git add busy-motivation.md
+
+          SNIPPETS=( "-- $TODAY busy learn\nSELECT 'Still trying' AS mindset FROM dual;" "// $TODAY quick JS\nconsole.log('Busy but breathing — commit #${{ github.run_number }}');" "-- $TODAY simple\nBEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;" "// $TODAY null check\nconst val = null ?? 'default when busy';" )
+          RANDOM_SNIPPET="${SNIPPETS[$((RANDOM % ${#SNIPPETS[@]}))]}"
+          echo -e "\n\n\`\`\`\n$RANDOM_SNIPPET\n\`\`\`" >> busy-snippets.md
+          git add busy-snippets.md
+
+      - name: Debug git status before commit
         run: git status --short
 
-      - name: Auto-commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: |
-            chore(daily): busy-mode auto-commit
-            Still learning — didn't skip today 💪
-          branch: main
-          file_pattern: busy-*.md   # Explicitly target our files
+      - name: Stage modified files explicitly
+        run: git add busy-motivation.md busy-snippets.md
+
+      - name: Commit daily changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git commit -m "chore(daily): busy-mode auto-commit
+Still not great at Oracle/JS... but didn't skip today 💪
+Generated quote + snippet for $(date '+%Y-%m-%d')" || echo "Commit skipped (rare now)"
+
+      - name: Push the commit
+        run: git push || echo "Push already up-to-date or skipped"
