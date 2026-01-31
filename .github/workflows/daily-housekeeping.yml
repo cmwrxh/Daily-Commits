@@ -33,11 +33,16 @@ jobs:
       - name: Debug git status
         run: git status --short
 
-      - name: Auto-commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: |
-            chore(daily): busy-mode auto-commit
-            Still not great at Oracle/JS... but didn't skip today 💪
-          branch: main
-          skip_dirty_check: true  # Force for first tests if needed
+      - name: Stage modified files explicitly
+        run: git add busy-motivation.md busy-snippets.md
+
+      - name: Commit daily changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git commit -m "chore(daily): busy-mode auto-commit
+          Still not great at Oracle/JS... but didn't skip today 💪
+          Generated quote + snippet for $(date '+%Y-%m-%d')" || echo "Commit skipped (should be rare now)"
+
+      - name: Push the commit
+        run: git push || echo "Push already up-to-date or skipped"
