@@ -1,0 +1,9 @@
+      - name: Auto-commit (with force option)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            chore(daily): busy-mode auto-commit
+            Still not great at Oracle/JS... but didn't skip today 💪
+          branch: main
+          file_pattern: busy-*.md
+          commit_options: '--allow-empty'   # This forces commit even if no change
