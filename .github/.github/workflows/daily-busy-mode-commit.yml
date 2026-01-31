@@ -1,0 +1,59 @@
+name: Daily Busy-Mode Commit
+
+on:
+  schedule:
+    - cron: '0 8 * * 1-6'
+  workflow_dispatch:
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0                # Full history to fix detection
+          persist-credentials: true
+
+      - name: Generate daily content
+        run: |
+          TODAY=$(date '+%Y-%m-%d')
+
+          QUOTES=( "Progress beats perfection — showing up today counts." "One small commit > zero. You're doing great, Alenti." "Busy day? Still here. That's the win." "Consistency is quiet — keep stacking days." "Not every day is epic, but every day adds up." "Grinding even when life is full — proud of you." "Small steps in chaos still move mountains." "You're allowed to be busy AND keep the streak." )
+          RANDOM_INDEX=$(( RANDOM % ${#QUOTES[@]} ))
+          RANDOM_QUOTE="${QUOTES[$RANDOM_INDEX]}"
+
+          echo "$TODAY | $RANDOM_QUOTE" >> busy-motivation.md
+          echo "DEBUG: Appended quote -> $RANDOM_QUOTE"   # For logs
+
+          SNIPPETS=( "-- $TODAY busy learn\nSELECT 'Still trying' AS mindset FROM dual;" "// $TODAY quick JS\nconsole.log('Busy but breathing — commit #${{ github.run_number }}');" "-- $TODAY simple\nBEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;" "// $TODAY null check\nconst val = null ?? 'default when busy';" )
+          SNIPPET_INDEX=$(( RANDOM % ${#SNIPPETS[@]} ))
+          RANDOM_SNIPPET="${SNIPPETS[$SNIPPET_INDEX]}"
+
+          echo -e "\n\n\`\`\`\n$RANDOM_SNIPPET\n\`\`\`" >> busy-snippets.md
+          echo "DEBUG: Appended snippet -> $RANDOM_SNIPPET"   # For logs
+
+          ls -la busy-*   # Confirm files exist/modified
+
+      - name: Stage files
+        run: git add busy-motivation.md busy-snippets.md || true
+
+      - name: Commit changes (force even if empty)
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git commit -m "chore(daily): busy-mode auto-commit
+Still learning Oracle/JS — streak alive 💪
+Date: $TODAY" || echo "Nothing new to commit (but should be rare now)"
+          git push || echo "Push skipped or already up-to-date"
+
+      # Fallback if above commit fails due to no change
+      - name: Force empty commit as last resort
+        if: failure() || success()   # Run always
+        run: |
+          git commit --allow-empty -m "chore(daily): busy-mode placeholder commit
+Still showing up even on quiet days 💪" || true
+          git push || true
