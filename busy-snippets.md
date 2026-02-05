@@ -52,3 +52,9 @@ const val = null ?? 'default when busy';
 // 2026-02-04 quick JS
 console.log('Busy but breathing — commit #11');
 ```
+
+
+```
+-- 2026-02-05 busy learn
+SELECT 'Still trying' AS mindset FROM dual;
+```
