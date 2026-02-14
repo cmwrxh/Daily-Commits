@@ -100,3 +100,9 @@ console.log('Busy but breathing — commit #18');
 // 2026-02-13 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+-- 2026-02-14 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
