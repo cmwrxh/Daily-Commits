@@ -172,3 +172,9 @@ console.log('Busy but breathing — commit #30');
 // 2026-02-27 quick JS
 console.log('Busy but breathing — commit #31');
 ```
+
+
+```
+-- 2026-02-28 busy learn
+SELECT 'Still trying' AS mindset FROM dual;
+```
