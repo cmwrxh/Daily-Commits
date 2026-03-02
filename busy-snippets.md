@@ -178,3 +178,9 @@ console.log('Busy but breathing — commit #31');
 -- 2026-02-28 busy learn
 SELECT 'Still trying' AS mindset FROM dual;
 ```
+
+
+```
+-- 2026-03-02 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
