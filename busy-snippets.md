@@ -208,3 +208,9 @@ BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 -- 2026-03-06 busy learn
 SELECT 'Still trying' AS mindset FROM dual;
 ```
+
+
+```
+// 2026-03-07 null check
+const val = null ?? 'default when busy';
+```
