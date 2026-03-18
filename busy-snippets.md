@@ -262,3 +262,9 @@ console.log('Busy but breathing — commit #45');
 -- 2026-03-17 simple
 BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 ```
+
+
+```
+-- 2026-03-18 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
