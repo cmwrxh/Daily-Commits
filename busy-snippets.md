@@ -268,3 +268,9 @@ BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 -- 2026-03-18 simple
 BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 ```
+
+
+```
+-- 2026-03-19 busy learn
+SELECT 'Still trying' AS mindset FROM dual;
+```
