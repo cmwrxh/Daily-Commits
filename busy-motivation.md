@@ -52,3 +52,4 @@
 2026-03-26 | Small steps in chaos still move mountains.
 2026-03-27 | You're allowed to be busy AND keep the streak.
 2026-03-28 | Small steps in chaos still move mountains.
+2026-03-30 | Grinding even when life is full — proud of you.
