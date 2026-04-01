@@ -1,3 +1,31 @@
+name: Housekeeping (Mon–Sat)
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-6'
+  workflow_dispatch: # Allows you to manually trigger it to test the fix
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    
+    # CRITICAL: This gives the action permission to push changes back to your repo
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Required to ensure the action can push back to the branch
+          ref: main
+
+      # Add a step here that actually modifies a file if you want 
+      # a real change, otherwise --allow-empty will handle it.
+      - name: Update busy file
+        run: |
+          echo "Last run: $(date)" > busy-log.md
+
       - name: Auto-commit (with force option)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -5,5 +33,8 @@
             chore(daily): busy-mode auto-commit
             Still not great at Oracle/JS... but didn't skip today 💪
           branch: main
-          file_pattern: busy-*.md
-          commit_options: '--allow-empty'   # This forces commit even if no change
+          file_pattern: 'busy-*.md'
+          commit_options: '--allow-empty'
+          # This ensures the action uses the correct author info
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
