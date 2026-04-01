@@ -340,3 +340,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 // 2026-04-01 quick JS
 console.log('Busy but breathing — commit #59');
 ```
+
+
+```
+-- 2026-04-01 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
