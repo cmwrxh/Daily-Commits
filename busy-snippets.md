@@ -370,3 +370,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 -- 2026-04-06 busy learn
 SELECT 'Still trying' AS mindset FROM dual;
 ```
+
+
+```
+-- 2026-04-07 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
