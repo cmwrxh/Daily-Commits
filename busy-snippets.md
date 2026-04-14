@@ -406,3 +406,9 @@ const val = null ?? 'default when busy';
 // 2026-04-13 quick JS
 console.log('Busy but breathing — commit #70');
 ```
+
+
+```
+-- 2026-04-14 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
