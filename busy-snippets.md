@@ -496,3 +496,9 @@ const val = null ?? 'default when busy';
 // 2026-04-30 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+-- 2026-05-01 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
