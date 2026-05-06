@@ -520,3 +520,9 @@ console.log('Busy but breathing — commit #88');
 // 2026-05-05 quick JS
 console.log('Busy but breathing — commit #89');
 ```
+
+
+```
+// 2026-05-06 null check
+const val = null ?? 'default when busy';
+```

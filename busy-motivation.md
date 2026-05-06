@@ -85,3 +85,4 @@
 2026-05-02 | You're allowed to be busy AND keep the streak.
 2026-05-04 | Grinding even when life is full — proud of you.
 2026-05-05 | Small steps in chaos still move mountains.
+2026-05-06 | Progress beats perfection — showing up today counts.
