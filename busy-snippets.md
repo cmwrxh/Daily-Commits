@@ -544,3 +544,9 @@ const val = null ?? 'default when busy';
 // 2026-05-09 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+-- 2026-05-11 busy learn
+SELECT 'Still trying' AS mindset FROM dual;
+```
