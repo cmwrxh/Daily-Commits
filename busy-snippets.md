@@ -580,3 +580,9 @@ BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 // 2026-05-16 quick JS
 console.log('Busy but breathing — commit #99');
 ```
+
+
+```
+// 2026-05-18 null check
+const val = null ?? 'default when busy';
+```
