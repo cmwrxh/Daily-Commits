@@ -123,3 +123,4 @@
 2026-06-17 | You're allowed to be busy AND keep the streak.
 2026-06-18 | One small commit > zero. You're doing great, Alenti.
 2026-06-19 | One small commit > zero. You're doing great, Alenti.
+2026-06-20 | Progress beats perfection — showing up today counts.
