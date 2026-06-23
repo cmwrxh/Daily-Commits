@@ -760,3 +760,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 // 2026-06-22 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+-- 2026-06-23 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
