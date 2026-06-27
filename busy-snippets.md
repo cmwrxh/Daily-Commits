@@ -784,3 +784,9 @@ console.log('Busy but breathing — commit #132');
 // 2026-06-26 quick JS
 console.log('Busy but breathing — commit #133');
 ```
+
+
+```
+-- 2026-06-27 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
