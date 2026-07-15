@@ -874,3 +874,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 -- 2026-07-14 simple
 BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 ```
+
+
+```
+-- 2026-07-15 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
