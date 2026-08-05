@@ -982,3 +982,9 @@ BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 -- 2026-08-04 simple
 BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 ```
+
+
+```
+-- 2026-08-05 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
