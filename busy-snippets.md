@@ -1084,3 +1084,9 @@ BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 -- 2026-08-24 simple
 BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 ```
+
+
+```
+// 2026-08-25 null check
+const val = null ?? 'default when busy';
+```
