@@ -1090,3 +1090,9 @@ BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 // 2026-08-25 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+// 2026-08-26 null check
+const val = null ?? 'default when busy';
+```
