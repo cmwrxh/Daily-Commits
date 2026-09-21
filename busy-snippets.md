@@ -1222,3 +1222,9 @@ const val = null ?? 'default when busy';
 -- 2026-09-19 simple
 BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
 ```
+
+
+```
+-- 2026-09-21 simple
+BEGIN DBMS_OUTPUT.PUT_LINE('One line at a time'); END;
+```
