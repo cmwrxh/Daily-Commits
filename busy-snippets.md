@@ -1276,3 +1276,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 -- 2026-09-30 busy learn
 SELECT 'Still trying' AS mindset FROM dual;
 ```
+
+
+```
+// 2026-10-01 null check
+const val = null ?? 'default when busy';
+```
