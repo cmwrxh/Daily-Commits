@@ -1330,3 +1330,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 // 2026-10-10 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+// 2026-10-12 null check
+const val = null ?? 'default when busy';
+```
