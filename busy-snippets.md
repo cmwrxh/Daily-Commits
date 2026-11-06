@@ -1462,3 +1462,9 @@ SELECT 'Still trying' AS mindset FROM dual;
 // 2026-11-05 quick JS
 console.log('Busy but breathing — commit #246');
 ```
+
+
+```
+// 2026-11-06 null check
+const val = null ?? 'default when busy';
+```
