@@ -1516,3 +1516,9 @@ console.log('Busy but breathing — commit #254');
 // 2026-11-16 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+// 2026-11-17 null check
+const val = null ?? 'default when busy';
+```
