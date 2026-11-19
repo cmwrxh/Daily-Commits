@@ -1528,3 +1528,9 @@ const val = null ?? 'default when busy';
 // 2026-11-18 null check
 const val = null ?? 'default when busy';
 ```
+
+
+```
+// 2026-11-19 null check
+const val = null ?? 'default when busy';
+```
